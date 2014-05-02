@@ -1,4 +1,5 @@
 if (Meteor.isServer) {
+  // Use the firebase NPM package on the server. (The client uses the firebase bower sourcecode)
   this.Firebase = Npm.require('firebase');
 }
 
@@ -22,6 +23,18 @@ FirebaseCollection = function (url) {
 
 FirebaseCollection.prototype = new LocalCollection();
 
+
+/**
+ * FirebaseCollection replaces all default modifying functions with
+ * methods that do not directly modify the collection, but rather the
+ * Firebase reference. This causes an update of the child_*-listeners
+ * defined in the constructor, which in turn will cause the actual
+ * updates of the collection.
+ *
+ * The default methods can still be accessed with the use of the methods
+ * preceded by an underscore. (Which will, however, not cause an update
+ * of the actual Firebase reference)
+ */
 FirebaseCollection.prototype._insert = LocalCollection.prototype.insert;
 FirebaseCollection.prototype._update = LocalCollection.prototype.update;
 FirebaseCollection.prototype._remove = LocalCollection.prototype.remove;
