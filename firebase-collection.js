@@ -103,12 +103,3 @@ FirebaseCollection.prototype.stop = function () {
   this.ref.off();
 };
 
-FirebaseCollection.prototype.get = function () {
-  this.dependency.depend();
-  return this.value;
-};
-
-FirebaseCollection.prototype.push = function (child) {
-  return this.ref.push(child);
-};
-
