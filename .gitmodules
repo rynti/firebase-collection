@@ -1,0 +1,3 @@
+[submodule "firebase-bower"]
+	path = firebase-bower
+	url = https://github.com/firebase/firebase-bower.git

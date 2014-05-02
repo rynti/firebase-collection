@@ -1,0 +1,6 @@
+{
+  "name": "firebase-collection",
+  "description": "A reactive solution to use Firebase with Meteor.",
+  "author": "Robert Böhm (http://robertboehm.net)",
+  "version": "0.1.0"
+}
